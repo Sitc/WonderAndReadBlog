@@ -1,0 +1,38 @@
+$blue: #009edf;
+$blue-hover: #028fca;
+
+$titlecolor: #757575;
+$sublinecolor: #6f6f6f;
+
+$primary-text: #252525;
+$black-text: #000;
+
+$dark-grey: #666666;
+$light-grey: #b7b7b7;
+$lighter-grey: #e2e2e2;
+$light-border: #f1f1f1;
+
+$lighter-grey-bg: #fafafa;
+$light-grey-bg: #f5f5f5;
+$light-grey-border: #e8e8e8;
+
+$message-grey: #a2a2a2;
+
+$love-color: #e83567;
+
+$green-bg: #ebfff2;
+
+$light-bg-color: #FAF5ED;
+$dark-bg-color: #252525;
+
+//* Scale is 1.25 - Major Third *//
+//* Base Size: 16px (100%/1rem) *//
+$title-font-size-desktop: 3.052rem;
+$title-font-size-mobile: 1.953rem;
+
+:export {
+  primaryTextColor: $primary-text;
+  lightBgColor: $light-bg-color;
+  titleFontSizeDesktop: $title-font-size-desktop;
+  titleFontSizeMobile: $title-font-size-mobile;
+}
