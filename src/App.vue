@@ -10,12 +10,12 @@
 
 <script>
 import Navigation from './components/Navigation.vue';
-import Footer from './components/Footer.vue';
+// import Footer from './components/Footer.vue';
 export default {
   name: "app",
   components: {
     Navigation,
-    Footer
+    // Footer
   },
   data() {
     return {};
@@ -57,5 +57,41 @@ export default {
 
 .link-light {
   color: #fff;
+}
+
+.arrow {
+  margin-left: 8px;
+  width: 12px;
+  path {
+    fill: #000;
+  }
+}
+.arrow_light {
+  path {
+    fill: #fff;
+  }
+}
+
+.blog_card_wrap {
+  position: relative;
+  padding: 80px 16px;
+  background-color: #f1f1f1;
+  @media (min-width: 500px) {
+    padding: 100px 16px;
+  }
+  .blog_cards {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr;
+    @media (min-width: 500px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
 }
 </style>

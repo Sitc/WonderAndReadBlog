@@ -5,7 +5,7 @@
         <router-link class="header" :to="{ name: Home }">Wonder and read</router-link>
       </div>
       <div class="nav_links">
-        <ul v-show="!isMobile">
+        <ul v-if="!isMobile">
           <router-link class="link" to="#">Home</router-link>
           <router-link class="link" to="#">Blogs</router-link>
           <router-link class="link" to="#">Create post</router-link>
@@ -13,9 +13,9 @@
         </ul>
       </div>
     </nav>
-    <menuIcon @click="toggleMobileNav" class="menu_icon" v-show="isMobile"/>
+    <menuIcon @click="toggleMobileNav" class="menu_icon" v-if="isMobile"/>
     <transition name="mobile-nav">
-      <ul v-show="mobileNav" class="mobile_nav">
+      <ul v-if="mobileNav" class="mobile_nav">
         <router-link class="link" to="#">Home</router-link>
         <router-link class="link" to="#">Blogs</router-link>
         <router-link class="link" to="#">Create post</router-link>
@@ -141,9 +141,12 @@ header {
 
     }
   }
-  .mobile-nav-enter-active,
-  .mobile.nav-leave-active {
+  .mobile-nav-enter-active {
     transition: all 1s ease;
+  }
+
+  .mobile.nav-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
   }
   .mobile-nav-enter {
     transform: translateX(-250px);
