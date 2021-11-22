@@ -1,18 +1,26 @@
 <template>
   <div class="blog_card">
-    <div class="icons">
+    <div v-show="editPost" class="icons">
       <div class="icon">
-        <Edit class="edit"/>
+        <Edit class="edit" />
       </div>
       <div class="icon">
-        <Delete class="delete"/>
+        <Delete class="delete" />
       </div>
     </div>
-    <img :src="require(`../assets/blogCards/${item.coverPhoto}.jpg`)" alt="">
-        <div class="info">
+    <img :src="require(`../assets/blogCards/${item.coverPhoto}.jpg`)" alt="" />
+    <div class="info">
       <h4>{{ item.blogTitle }}</h4>
-      <h6>Posted on: {{ new Date(item.blogDate).toLocaleString("en-us", { dateStyle: "long" }) }}</h6>
-      <router-link class="link" :to="{ name: 'ViewBlog', params: { blogid: this.item.blogID } }">
+      <h6>
+        Posted on:
+        {{
+          new Date(item.blogDate).toLocaleString("en-us", { dateStyle: "long" })
+        }}
+      </h6>
+      <router-link
+        class="link"
+        :to="{ name: 'ViewBlog', params: { blogid: this.item.blogID } }"
+      >
         View The Post <Arrow class="arrow" />
       </router-link>
     </div>
@@ -20,18 +28,23 @@
 </template>
 
 <script>
-import Arrow from '../assets/Icons/arrow-right-light.svg'
-import Edit from '../assets/Icons/edit-regular.svg'
-import Delete from '../assets/Icons/trash-regular.svg'
-  export default {
-    name: 'BlogCard',
-    props: ['item'],
-    components: {
-      Arrow,
-      Edit,
-      Delete
-    }
-  }
+import Arrow from "../assets/Icons/arrow-right-light.svg";
+import Edit from "../assets/Icons/edit-regular.svg";
+import Delete from "../assets/Icons/trash-regular.svg";
+export default {
+  name: "BlogCard",
+  props: ["item"],
+  components: {
+    Arrow,
+    Edit,
+    Delete,
+  },
+  computed: {
+    editPost() {
+      return this.$store.state.editPost;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -46,7 +59,8 @@ import Delete from '../assets/Icons/trash-regular.svg'
   transition: 0.5s ease all;
   &:hover {
     transform: rotateZ(-1deg) scale(1.01);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
   .icons {
     display: flex;
