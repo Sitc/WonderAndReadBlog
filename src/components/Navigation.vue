@@ -2,7 +2,7 @@
   <header>
     <nav class="container">
       <div class="branding">
-        <router-link class="header" :to="{ name: 'Home' }">Wonder and Read</router-link>
+        <router-link class="header" :to="{ name: 'Home' }">Wonder and read</router-link>
       </div>
       <div class="nav-links">
         <ul v-show="!mobile">
@@ -61,8 +61,8 @@ import menuIcon from "../assets/Icons/bars-regular.svg";
 import userIcon from "../assets/Icons/user-alt-light.svg";
 import adminIcon from "../assets/Icons/user-crown-light.svg";
 import signOutIcon from "../assets/Icons/sign-out-alt-regular.svg";
-// import firebase from "firebase/app";
-// import "firebase/auth";
+import firebase from "firebase/app";
+import "firebase/auth";
 export default {
   name: "navigation",
   components: {
@@ -102,10 +102,10 @@ export default {
         this.profileMenu = !this.profileMenu;
       }
     },
-    // signOut() {
-    //   firebase.auth().signOut();
-    //   window.location.reload();
-    // },
+    signOut() {
+      firebase.auth().signOut();
+      window.location.reload();
+    },
   },
   computed: {
     user() {
